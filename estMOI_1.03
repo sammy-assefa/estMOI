@@ -2,7 +2,7 @@
 
 ## estMOI: estimating multiplicity of infection using parasite deep sequencing data
 ## Version 1.03
-## contact: samuel.assefa at lshtm.ac.uk OR mark.preston at lshtm.ac.uk
+## contact: samuel.assefa at lshtm.ac.uk
 
 use strict;
 use Carp;
@@ -42,13 +42,17 @@ if (@ARGV < 3) {
     \t--maxfact=int\tPercentile cutoff for adjusting genomewide MOI estimate [default $options{maxfact}]
     \t--mindis=int\tMinimum distance between any two SNPs [default $options{mindis}]
     \t--maxdis=int\tMaximum distance between the first and last SNP [default $options{maxdis}]
+    \t--exclude=string\tFile name of regions to be excluded[format: Chromosome Start End]
     \t--flank=int\tFlanking size for excluded regions [default $options{flank}] 
+    
     \t--out=string\tOutput file prefix [default $options{out}]
     \t--debug \tDebug output [default $options{debug}]
     Note:
+    \tMake sure you try the --exclude option to exclude regions of the genome that are highly polymorphic as they are likely to inflate your estimates
     \tFor paired end libraries, maxdis should not exceed the insert/fragment size of library
     \t--minhap is used to disregard haplotypes that are less frequent than minhap\n
-    \tOptimisation on your data could be done by changing --minhap and --maxfact parameters\n\n";
+    
+    \tOptimisation on your data could be done eg. by changing --minhap and --maxfact parameters. However, it is advisable to also experiment with other options and not use just the default parameters\n\n";
   exit;
 }
 
