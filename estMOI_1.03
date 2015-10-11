@@ -63,6 +63,7 @@ GetOptions(
            "minhap=i"     => \$options{minhap},
            "maxfact"      => \$options{maxfact},
            "maxdis=i"     => \$options{maxdis},
+           "flank=i"      => \$options{flank},
            "exclude=s"    => \$options{exclude},
            "out=s"        => \$options{out},
            "tmp"          => \$options{tmp},
